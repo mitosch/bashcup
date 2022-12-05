@@ -1,0 +1,36 @@
+{
+  "BACKUP_DIR": "/mnt/volume_backup",
+  "hosts": {
+    "virtual-host-01": {
+      "hostname": "vh01.your-domain.com",
+      "databases": {
+        "example_production": {
+          "ssh_user": "ssh-user",
+          "extra_opts": "--no-tablespaces"
+        },
+        "example_staging": {
+          "ssh_user": "ssh-user-staging"
+        }
+      }
+    },
+    "virtual-host-02": {
+      "hostname": "vh02.your-domain.com",
+      "databases": {
+        "wordpress": {
+          "ssh_user": "wpssh-user"
+        }
+      },
+      "files": {
+        "logs_and_config": {
+          "ssh_user": "wpssh-user",
+          "base_dir": "/var/www/wpdir",
+          "directories": [
+            "config/",
+            "app/log/",
+            "another/config/dir/"
+          ]
+        }
+      }
+    }
+  }
+}
