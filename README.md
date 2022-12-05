@@ -1,4 +1,4 @@
-# A backup bash script
+# bashcup - A backup bash script
 
 A simple backup script written in bash to back-up databases and directories.
 
@@ -29,7 +29,7 @@ chown backup-user:backup-user /var/run/backup-sh
 
 ## Configuration
 
-Create a configuration and a secret-file to use the backup bash script.
+Create a [configuration](config.example.json) and a [secret-file](backup-secrets.example.json) to use the backup bash script.
 
 Example configuration `config.json`:
 ```json
