@@ -1,6 +1,6 @@
 # bashcup - A backup bash script
 
-A simple backup script written in bash to back-up databases and directories.
+A simple [backup script](backup.sh) written in bash to back-up databases and directories.
 
 ## Features
 
