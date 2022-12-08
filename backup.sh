@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Version:  0.6.0 (2022-12-05)
+# Version:  0.6.1 (2022-12-08)
 # Author:   Mischa Schindowski <mschindowski@gmail.com>
 # License:  MIT, see LICENSE
 #
@@ -252,7 +252,7 @@ backup_command() {
 
       log "Backing up: files ${file_backup} at host ${host}"
 
-      ssh ${ssh_user}@${hostname} "tar -cz -C ${base_dir} ${backup_dirs}" > ${dir}/${file}
+      ssh ${ssh_user}@${hostname} "tar --ignore-failed-read -cz -C ${base_dir} ${backup_dirs}" > ${dir}/${file}
 
       log "Backup succeded: files ${file_backup} at host ${host}"
     done
