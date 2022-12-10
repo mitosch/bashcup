@@ -252,7 +252,17 @@ backup_command() {
 
       log "Backing up: files ${file_backup} at host ${host}"
 
-      ssh ${ssh_user}@${hostname} "tar --ignore-failed-read -cz -C ${base_dir} ${backup_dirs}" > ${dir}/${file}
+      # NOTE: tar returns 0 on success, 1 if files differ: this can happen,
+      #   when files are changed during read.
+      #
+      # To not end the backup, ignore the file-changed error (still returns 1)
+      # and exit only on other tar errors
+      set +e
+      ssh ${ssh_user}@${hostname} "tar --warning=no-file-changed -cz -C ${base_dir} ${backup_dirs}" > ${dir}/${file}
+      if [ "$?" != "1" ] && [ "$?" != "0" ]; then
+        exit $?
+      fi
+      set -e
 
       log "Backup succeded: files ${file_backup} at host ${host}"
     done
