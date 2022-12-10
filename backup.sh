@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Version:  0.6.1 (2022-12-08)
+# Version:  0.6.2 (2022-12-08)
 # Author:   Mischa Schindowski <mschindowski@gmail.com>
 # License:  MIT, see LICENSE
 #
